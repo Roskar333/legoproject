@@ -6,18 +6,26 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import data.*;
 
 @Path("/lego")
 public class LegoService {
 	EntityManagerFactory emf=Persistence.createEntityManagerFactory("lego");	
+	
+	@Context
+	HttpServletRequest request;
+	
+	@Context
+	HttpServletRequest response;
 	
 	@Path("/getlego")
 	@GET
